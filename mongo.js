@@ -9,8 +9,7 @@ if (process.argv.length < 3) {
 
 const password = process.argv[2];
 
-const url =
-  'mongodb+srv://mohamednasr86:m4102005m@cluster0.cfnr6.mongodb.net/phonebook?retryWrites=true&w=majority';
+const url = `mongodb+srv://mohamednasr86:${password}@cluster0.cfnr6.mongodb.net/phonebook?retryWrites=true&w=majority`;
 
 mongoose.connect(url, {
   useNewUrlParser: true,
@@ -27,20 +26,20 @@ const phonebookSchema = new mongoose.Schema({
 const Phonebook = mongoose.model('Phonebook', phonebookSchema);
 
 const personOne = new Phonebook({
-  person: 'Ana',
-  number: '040-3456788',
+  person: 'Ryan',
+  number: '040-34564747',
 });
 
-// personOne.save().then((result) => {
-//   console.log(
-//     `added ${personOne.person} number ${personOne.number} to phonebook`
-//   );
-//   mongoose.connection.close();
-// });
-
-Phonebook.find({}).then((result) => {
-  result.forEach((p) => {
-    console.log(p.person, p.number);
-  });
+personOne.save().then((result) => {
+  console.log(
+    `added ${personOne.person} number ${personOne.number} to phonebook`
+  );
   mongoose.connection.close();
 });
+
+// Phonebook.find({}).then((result) => {
+//   result.forEach((p) => {
+//     console.log(p.person, p.number);
+//   });
+//   mongoose.connection.close();
+// });
