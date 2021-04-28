@@ -19,20 +19,20 @@ mongoose.connect(url, {
 });
 
 const phonebookSchema = new mongoose.Schema({
-  person: String,
+  name: String,
   number: String,
 });
 
 const Phonebook = mongoose.model('Phonebook', phonebookSchema);
 
 const personOne = new Phonebook({
-  person: 'Ryan',
+  name: 'Ryan',
   number: '040-34564747',
 });
 
 personOne.save().then((result) => {
   console.log(
-    `added ${personOne.person} number ${personOne.number} to phonebook`
+    `added ${personOne.name} number ${personOne.number} to phonebook`
   );
   mongoose.connection.close();
 });
