@@ -36,10 +36,3 @@ personOne.save().then((result) => {
   );
   mongoose.connection.close();
 });
-
-// Phonebook.find({}).then((result) => {
-//   result.forEach((p) => {
-//     console.log(p.person, p.number);
-//   });
-//   mongoose.connection.close();
-// });
